@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./App.css";
 
 import { Color } from "./types";
+import { replaceCameWithSpaces } from "./utils";
 
 function App() {
   const [buttonColor, setButtonColor] = useState<Color>("red");
