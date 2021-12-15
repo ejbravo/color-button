@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import "./App.css";
 
-import { Color } from "./types";
+import { Colors } from "./types";
 import { replaceCameWithSpaces } from "./utils";
 
 function App() {
-  const [buttonColor, setButtonColor] = useState<Color>("red");
+  const [buttonColor, setButtonColor] = useState<Colors>(Colors.RED);
   const [isDisabled, setDisabled] = useState<boolean>(false);
 
-  const newButtonColor = (prevColor: Color) =>
-    prevColor === "blue" ? "red" : "blue";
+  const newButtonColor = (prevColor: Colors) =>
+    prevColor === Colors.BLUE ? Colors.RED : Colors.BLUE;
 
   const toggleButtonColor = () =>
     setButtonColor((prev) => newButtonColor(prev));
@@ -17,11 +17,14 @@ function App() {
   return (
     <div>
       <button
-        style={{ backgroundColor: isDisabled ? "gray" : buttonColor }}
+        style={{
+          backgroundColor: isDisabled ? Colors.GRAY : buttonColor,
+          color: Colors.WHITE,
+        }}
         disabled={isDisabled}
         onClick={toggleButtonColor}
       >
-        Change to {newButtonColor(buttonColor)}
+        Change to {replaceCameWithSpaces(newButtonColor(buttonColor))}
       </button>
       <input
         id="disable-button-checkbox"
