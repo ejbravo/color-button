@@ -5,20 +5,29 @@ import { Color } from "./types";
 
 function App() {
   const [buttonColor, setButtonColor] = useState<Color>("red");
-  const newButtonColor: Color = buttonColor === "blue" ? "red" : "blue";
+  const [isDisabled, setDisabled] = useState<boolean>(false);
 
-  const toggleButtonColor = () => {
-    setButtonColor((prev) => (prev === "blue" ? "red" : "blue"));
-  };
+  const newButtonColor = (prevColor: Color) =>
+    prevColor === "blue" ? "red" : "blue";
+
+  const toggleButtonColor = () =>
+    setButtonColor((prev) => newButtonColor(prev));
 
   return (
     <div>
       <button
-        style={{ backgroundColor: buttonColor }}
+        style={{ backgroundColor: isDisabled ? "gray" : buttonColor }}
+        disabled={isDisabled}
         onClick={toggleButtonColor}
       >
-        Change to {newButtonColor}
+        Change to {newButtonColor(buttonColor)}
       </button>
+      <input
+        id="disable-button-checkbox"
+        type="checkbox"
+        onChange={() => setDisabled(!isDisabled)}
+      />
+      <label htmlFor="disable-button-checkbox">Disable button</label>
     </div>
   );
 }
