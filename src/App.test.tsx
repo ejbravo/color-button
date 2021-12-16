@@ -32,7 +32,7 @@ test("Button turns blue when clicked", () => {
   expect(colorButton).toHaveStyle({ backgroundColor: Colors.BLUE });
 
   // expect the button text to be 'Change to red'
-  expect(colorButton.textContent).toBe(
+  expect(colorButton).toHaveTextContent(
     `Change to ${replaceCameWithSpaces(Colors.RED)}`
   );
 });
