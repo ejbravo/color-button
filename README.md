@@ -9,6 +9,7 @@
 
 ## .eslintrc.json
 
+```
 {
 "plugins": [
 "testing-library",
@@ -21,6 +22,7 @@
 "plugin:jest-dom/recommended"
 ]
 }
+```
 
 ## .vscode/settings.json
 
