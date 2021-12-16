@@ -1,3 +1,48 @@
+# eslint configuration
+
+1. npm install eslint-plugin-testing-library eslint-plugin-jest-dom
+2. Remove eslintConfig from package.json
+3. Create .eslintrc.json and add standard config (see bellow)
+4. All .eslintcache and .vscode to .gitignore
+5. Create .vscode/settings.json and add standard config (see bellow)
+6. Test that it works!! 😉
+
+## .eslintrc.json
+
+{
+"plugins": [
+"testing-library",
+"jest-dom"
+],
+"extends": [
+"react-app",
+"react-app/jest",
+"plugin:testing-library/react",
+"plugin:jest-dom/recommended"
+]
+}
+
+## .vscode/settings.json
+
+```
+{
+  "eslint.options": {
+    "overrideConfigFile": ".eslintrc.json"
+  },
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true
+}
+```
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
